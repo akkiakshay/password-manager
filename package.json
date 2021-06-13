@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "crypto-js": "^4.0.0",
     "watchify": "^4.0.0"
   }
 }
