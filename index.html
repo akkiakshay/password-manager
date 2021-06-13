@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Password Manager</h1>
+      <form method="POST">
+        <div class="box">
+          <div class="error-spot" id="error-spot"><p></p></div>
+          <div class="field">
+            <input
+              type="text"
+              name="url"
+              id="url"
+              class="field-input"
+              placeholder="Input URL"
+              autocomplete="off"
+              autofocus
+              required
+            />
+          </div>
+          <div class="field">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="field-input"
+              placeholder="Input Master Password"
+              required
+            />
+          </div>
+          <div class="field">
+            <input
+              type="number"
+              name="password-length"
+              id="password-length"
+              class="field-input"
+              placeholder="Input Password Length"
+              required
+            />
+          </div>
+          <div class="checkbox">
+            <div>
+              <input
+                type="checkbox"
+                class="options"
+                value="lowercase"
+                checked
+              />
+              <label for="small">a-z</label>
+            </div>
+            <div>
+              <input type="checkbox" class="options" value="uppercase" />
+              <label for="big">A-Z</label>
+            </div>
+            <div>
+              <input type="checkbox" class="options" value="number" checked />
+              <label for="number">0-9</label>
+            </div>
+            <div>
+              <input type="checkbox" class="options" value="special" />
+              <label for="special">@#$!</label>
+            </div>
+          </div>
+          <div class="submit">
+            <button type="submit" id="submit" class="button button2">
+              Create Password
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="password-container" id="password-container">
+        <span id="password-span"></span
+        ><span
+          ><button id="copy" class="button button2 button3">Copy</button></span
+        >
+      </div>
+    </div>
+
+    <script src="bundle.js"></script>
+  </body>
+</html>
