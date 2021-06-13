@@ -1,4 +1,4 @@
-const {generator} = require("./generate-password")
+const { generator } = require("./generate-password");
 const SHA256 = require("crypto-js/sha256");
 
 const hash_func = (...args) => {
@@ -39,21 +39,20 @@ const mix = (buf, cnt, delta, salt, space_cost, time_cost) => {
   }
 };
 
-const extract = (buffer,options) => {
-  let arr = []
-  let a = 0
-  
-  for(let i=0 ;i < buffer.length; i++) {
-    a=0
-    for(let j =0; j < buffer.length;j++) {
-      
-      a += buffer[i][j].charCodeAt(0)
+const extract = (buffer, options) => {
+  let arr = [];
+  let a = 0;
+
+  for (let i = 0; i < buffer.length; i++) {
+    a = 0;
+    for (let j = 0; j < buffer.length; j++) {
+      a += buffer[i][j].charCodeAt(0);
     }
-    
-     arr.push(a)
+
+    arr.push(a);
   }
-  
-  return generator(arr,options);
+
+  return generator(arr, options);
 };
 
 const balloon = (password, salt, space_cost, time_cost, delta) => {
@@ -68,12 +67,11 @@ const balloon = (password, salt, space_cost, time_cost, delta) => {
   return buffer;
 };
 
-const balloon_hash = (password, salt,length,options) => {
+const balloon_hash = (password, salt, length, options) => {
   const delta = 5,
-    time_cost = 20,
-    space_cost = 16;
-    const hashBuffer = balloon(password, salt, length, time_cost, delta)
-    const newPassword = extract(hashBuffer,options)
+    time_cost = 20;
+  const hashBuffer = balloon(password, salt, length, time_cost, delta);
+  const newPassword = extract(hashBuffer, options);
   return newPassword;
 };
 
