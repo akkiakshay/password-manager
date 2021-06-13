@@ -2,7 +2,7 @@
 
 const characters = {
     lowercase: "abcdefghijklmnopqrstuvwxyz",
-    uppercase: "ANCDEFGHIJKLMNOPQRSTUVWXYZ",
+    uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     number: "1234567890",
     special: "~!@#$%^&*()={}?"
 }
