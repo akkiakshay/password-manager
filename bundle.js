@@ -1003,7 +1003,7 @@
 
 const characters = {
     lowercase: "abcdefghijklmnopqrstuvwxyz",
-    uppercase: "ANCDEFGHIJKLMNOPQRSTUVWXYZ",
+    uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     number: "1234567890",
     special: "~!@#$%^&*()={}?"
 }
@@ -1029,7 +1029,7 @@ module.exports = {
     generator
 }
 },{}],4:[function(require,module,exports){
-const {generator} = require("./generate-password")
+const { generator } = require("./generate-password");
 const SHA256 = require("crypto-js/sha256");
 
 const hash_func = (...args) => {
@@ -1070,21 +1070,20 @@ const mix = (buf, cnt, delta, salt, space_cost, time_cost) => {
   }
 };
 
-const extract = (buffer,options) => {
-  let arr = []
-  let a = 0
-  
-  for(let i=0 ;i < buffer.length; i++) {
-    a=0
-    for(let j =0; j < buffer.length;j++) {
-      
-      a += buffer[i][j].charCodeAt(0)
+const extract = (buffer, options) => {
+  let arr = [];
+  let a = 0;
+
+  for (let i = 0; i < buffer.length; i++) {
+    a = 0;
+    for (let j = 0; j < buffer.length; j++) {
+      a += buffer[i][j].charCodeAt(0);
     }
-    
-     arr.push(a)
+
+    arr.push(a);
   }
-  
-  return generator(arr,options);
+
+  return generator(arr, options);
 };
 
 const balloon = (password, salt, space_cost, time_cost, delta) => {
@@ -1099,12 +1098,11 @@ const balloon = (password, salt, space_cost, time_cost, delta) => {
   return buffer;
 };
 
-const balloon_hash = (password, salt,length,options) => {
+const balloon_hash = (password, salt, length, options) => {
   const delta = 5,
-    time_cost = 20,
-    space_cost = 16;
-    const hashBuffer = balloon(password, salt, length, time_cost, delta)
-    const newPassword = extract(hashBuffer,options)
+    time_cost = 20;
+  const hashBuffer = balloon(password, salt, length, time_cost, delta);
+  const newPassword = extract(hashBuffer, options);
   return newPassword;
 };
 
@@ -1115,6 +1113,8 @@ module.exports = {
 },{"./generate-password":3,"crypto-js/sha256":2}],5:[function(require,module,exports){
 const { balloon_hash } = require("./hashfunction");
 
+
+
 const passwordButton = document.getElementById("submit");
 const url = document.getElementById("url");
 const masterPassword = document.getElementById("password");
@@ -1123,8 +1123,12 @@ const passwordContainer = document.getElementById("password-container");
 const copyButton = document.getElementById("copy");
 const checkBox = document.querySelectorAll(".options");
 const errorSpot = document.getElementById("error-spot");
+const loader = document.getElementById('loader')
+const container = document.getElementById('container')
 
 const _Reinitialize = () => {
+  loader.style.display="none";
+  container.style.display="block"; 
   url.value = "";
   masterPassword.value = "";
   passwordLength.value = "";
@@ -1178,7 +1182,7 @@ const handleButtonClick = (e) => {
     const options = findCheckedElements();
     const hashedValue = balloon_hash(
       masterPassword.value,
-      url.value,
+      "https://"+url.value,
       passwordLength.value,
       options
     );
