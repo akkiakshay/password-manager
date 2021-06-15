@@ -1,5 +1,7 @@
 const { balloon_hash } = require("./hashfunction");
 
+
+
 const passwordButton = document.getElementById("submit");
 const url = document.getElementById("url");
 const masterPassword = document.getElementById("password");
@@ -8,8 +10,12 @@ const passwordContainer = document.getElementById("password-container");
 const copyButton = document.getElementById("copy");
 const checkBox = document.querySelectorAll(".options");
 const errorSpot = document.getElementById("error-spot");
+const loader = document.getElementById('loader')
+const container = document.getElementById('container')
 
 const _Reinitialize = () => {
+  loader.style.display="none";
+  container.style.display="block"; 
   url.value = "";
   masterPassword.value = "";
   passwordLength.value = "";
@@ -63,7 +69,7 @@ const handleButtonClick = (e) => {
     const options = findCheckedElements();
     const hashedValue = balloon_hash(
       masterPassword.value,
-      url.value,
+      "https://"+url.value,
       passwordLength.value,
       options
     );
