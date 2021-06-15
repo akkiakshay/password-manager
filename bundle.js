@@ -22394,7 +22394,7 @@ module.exports={
   "_id": "elliptic@6.5.4",
   "_inBundle": false,
   "_integrity": "sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==",
-  "_location": "/watchify/elliptic",
+  "_location": "/browserify/elliptic",
   "_phantomChildren": {},
   "_requested": {
     "type": "range",
@@ -22407,13 +22407,13 @@ module.exports={
     "fetchSpec": "^6.5.3"
   },
   "_requiredBy": [
-    "/watchify/browserify-sign",
-    "/watchify/create-ecdh"
+    "/browserify/browserify-sign",
+    "/browserify/create-ecdh"
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.5.4.tgz",
   "_shasum": "da37cebd31e79a1367e941b592ed1fbebd58abbb",
   "_spec": "elliptic@^6.5.3",
-  "_where": "C:\\Users\\Aksha\\AppData\\Roaming\\npm\\node_modules\\watchify\\node_modules\\browserify-sign",
+  "_where": "C:\\Users\\Aksha\\AppData\\Roaming\\npm\\node_modules\\browserify\\node_modules\\browserify-sign",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
