@@ -95,3 +95,15 @@ copyButton.addEventListener("click", copyText);
 window.addEventListener("DOMContentLoaded", () => {
   _Reinitialize();
 });
+
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  e.userChoice.then((choiceResult) => {
+    if (choiceResult.outcome === "accepted") {
+      console.log("User accepted the A2HS prompt");
+    } else {
+      console.log("User dismissed the A2HS prompt");
+    }
+  });
+});
